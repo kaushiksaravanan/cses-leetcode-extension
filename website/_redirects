@@ -1,0 +1,13 @@
+# Netlify redirects for CSES LeetCode Interface
+
+# Force HTTPS
+/*  https://cses-leetcode-extension.vercel.app/:splat  301!
+
+# Root
+/  /index.html  200
+
+# Privacy
+/privacy  /privacy.html  200
+
+# ZIP download
+/download  /cses-leetcode-extension.zip  200

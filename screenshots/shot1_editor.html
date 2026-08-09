@@ -1,0 +1,53 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8"><style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Verdana,sans-serif;font-size:14px;background:#fff;color:#000}
+.hdr{background:#292929;color:#fff;padding:8px 20px;font-size:14px}
+.nav{border-bottom:1px solid #000;padding:8px 20px 0}
+.nav h1{font-size:24px;padding:2px 0 8px}
+.nav ul{list-style:none;display:flex;gap:2px}
+.nav li a{display:inline-block;padding:4px 12px;font-size:11px;text-transform:uppercase;text-decoration:none;color:#09a;background:#ebebeb;border-bottom:3px solid #58cc02;font-weight:bold}
+.row{display:flex;align-items:flex-start}
+.main{flex:1;padding:14px 22px;min-width:0}
+.main h1{font-size:17px;margin:0 0 6px}
+.main p{font-size:13px;margin:8px 0;line-height:1.6}
+.main pre{background:#f6f6f6;border:1px solid #ddd;border-radius:4px;padding:8px 12px;font-family:Consolas,monospace;font-size:12px}
+.side{width:420px;flex-shrink:0;border-left:1px solid #000;padding:14px 18px}
+.head{display:flex;align-items:center;gap:8px;font-weight:bold;font-size:15px;padding-bottom:7px;border-bottom:2px solid #58cc02;margin-bottom:10px}
+.dot{width:10px;height:10px;border-radius:50%;background:#58cc02}
+.ctl{display:flex;align-items:center;gap:8px;margin-bottom:9px;font-size:11px;font-weight:bold}
+.ctl select{border:1px solid #ddd;border-radius:6px;background:#f7f8fa;padding:4px 8px;font-size:12px}
+.ta{width:100%;height:300px;border:1px solid #ddd;border-radius:8px;background:#f7f8fa;padding:10px 12px;font-family:Consolas,monospace;font-size:13px;line-height:1.5;margin-bottom:9px;white-space:pre}
+.c{color:#7a7a7a}
+.act{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.btn{background:#58cc02;border:none;color:#fff;font-weight:bold;font-size:13px;padding:8px 20px;border-radius:8px}
+.st{color:#8a8a8a;font-size:12px}
+.rs{border:1px solid #e0e0e0;border-radius:8px;background:#f7f8fa;padding:11px;font-family:Consolas,monospace;font-size:12px;color:#8a8a8a}
+</style></head><body>
+<div class="hdr">CSES Problem Set</div>
+<div class="nav"><h1>Weird Algorithm</h1><ul><li><a>Task</a></li><li><a>Submit</a></li><li><a>Results</a></li></ul></div>
+<div class="row">
+<div class="main"><h1>Weird Algorithm</h1>
+<p>Consider an algorithm that takes as input a positive integer <i>n</i>. If <i>n</i> is even, the algorithm divides it by two, and if <i>n</i> is odd, the algorithm multiplies it by three and adds one. The algorithm repeats this, until <i>n</i> is one.</p>
+<pre>3 &rarr; 10 &rarr; 5 &rarr; 16 &rarr; 8 &rarr; 4 &rarr; 2 &rarr; 1</pre>
+<p><b>Constraints:</b> 1 &le; n &le; 10<sup>6</sup></p></div>
+<div class="side">
+<div class="head"><span class="dot"></span> Code Editor</div>
+<div class="ctl"><label>Language</label><select><option>C++</option></select></div>
+<div class="ta"><span class="c">#include &lt;bits/stdc++.h&gt;</span>
+<span class="c">using namespace std;</span>
+
+<span class="c">int main() {</span>
+    long long n;
+    cin &gt;&gt; n;
+    cout &lt;&lt; n;
+    <span class="c">while</span> (n != 1) {
+        <span class="c">if</span> (n % 2 == 0) n /= 2;
+        <span class="c">else</span> n = n * 3 + 1;
+        cout &lt;&lt; " " &lt;&lt; n;
+    }
+    cout &lt;&lt; endl;
+}</div>
+<div class="act"><button class="btn">&#9654; Submit</button><span class="st">Ctrl+Enter to submit</span></div>
+<div class="rs">Your result will appear here.</div>
+</div>
+</div></body></html>

@@ -1,0 +1,70 @@
+═══════════════════════════════════════════════════════════════
+  CHROME WEB STORE LISTING — copy/paste these fields
+  ═══ RECOMMENDED (trademark-safe) TITLE SET ═══
+═══════════════════════════════════════════════════════════════
+
+▶ NAME (≤ 50 chars)
+CSES Code Editor — Submit from Problem Page
+(41 chars ✓ — no "LeetCode" trademark in the title; lower IP risk)
+
+▶ SUMMARY / SHORT DESCRIPTION (≤ 132 chars, shown in store & tile)
+Write and submit C++, Java, Python and JS code directly on CSES problem pages. Instant verdicts, saved drafts.
+(131 chars ✓)
+
+▶ DESCRIPTION (long form — paste into listing)
+
+CSES Code Editor brings a clean, distraction-free code editor to every CSES problem page. Write your solution, press Submit, and get instant results — without file uploads or tab switching.
+
+It was built by a student for personal learning and education, and it is completely free: no ads, no tracking, no data collection.
+
+FEATURES
+• Editor in the sidebar — code while you read the problem; the problem list and submission history step aside
+• One-click submit with instant verdicts: ACCEPTED, WRONG ANSWER, COMPILE ERROR, TIME LIMIT, RUNTIME ERROR, and more
+• Keyboard-first: Ctrl+Enter (Cmd+Enter on Mac) submits, Tab inserts 4 spaces
+• Draft autosave: your code is saved locally per problem and restored after a refresh; drafts clear when a solution is ACCEPTED
+• Language memory: C++, C, Java, Python 3, Node.js — your last choice is remembered
+• Plain-text editor: no syntax highlighting, no clutter, just like a real contest environment
+• Progress overview: a clean solved/total tracker on the problem set page
+
+PRIVACY
+• Zero data collection. No analytics, no trackers, no third-party servers
+• Your code goes only to cses.fi — exactly where it goes when you submit through the site's own form
+• Drafts live only in your browser's localStorage, on your device
+• Permissions: only "Read and change your data on cses.fi" — no cookies, no storage, no web-accessible resources
+
+This extension is an independent, educational project. It is NOT affiliated with, or endorsed by, CSES, the University of Helsinki, LeetCode, or Google.
+
+▶ CATEGORY
+Developer Tools
+
+▶ SINGLE PURPOSE (required field in dashboard)
+Provide a code editor and submission workflow for cses.fi problem pages
+
+▶ LANGUAGES
+English
+
+▶ ICON
+assets/icon128.png
+
+▶ SCREENSHOTS (1280x800)
+screenshots/shot1_editor.png   — Code editor in the sidebar
+screenshots/shot2_result.png   — ACCEPTED verdict with progress bar
+screenshots/shot3_progress.png — Solved/total progress tracker
+
+▶ PRIVACY POLICY URL
+https://<YOUR-DOMAIN>/privacy.html   (host the website/ folder)
+
+▶ DATA COLLECTION DISCLOSURE (dashboard toggles)
+- Data you provide via extension: NO
+- Personal or sensitive user data: NO
+- Permissions explanation: "Runs only on cses.fi to inject a code editor. Submissions are sent to cses.fi using the user's own logged-in session. No other data is accessed."
+
+▶ VISIBILITY / SPAM DECLARATION
+- Single purpose: YES
+- No ads, no payment, no affiliate
+- Real screenshots, honest description
+
+═══════════════════════════════════════════════════════════════
+  ALTERNATE TITLE KEEPING "LEETCODE" (higher IP-friction, not
+  recommended): "CSES LeetCode Interface — Code Editor & Submit"
+═══════════════════════════════════════════════════════════════

@@ -1,0 +1,17 @@
+# ─── PERSONAL / PRIVATE — NEVER COMMIT ─────────────────────────
+Request for transcript.pdf
+Request from Advidor.pdf
+*.pdf
+
+# ─── Local Vercel link (machine-specific, no secrets but not needed in repo) ───
+.vercel/
+
+# ─── OS / editor noise ─────────────────────────────────────────
+Thumbs.db
+.DS_Store
+*.log
+*.tmp
+
+# ─── Temp / test artifacts ─────────────────────────────────────
+test*.js
+*.bak

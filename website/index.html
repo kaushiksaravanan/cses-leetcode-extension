@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══ Primary Meta ═══ -->
+  <title>CSES LeetCode Interface — Chrome Extension for Competitive Programming</title>
+  <meta name="title" content="CSES LeetCode Interface — Code Editor &amp; Submission Chrome Extension">
+  <meta name="description" content="Write and submit C++, Java, and Python code directly on CSES problem pages. Get instant test results, track your solved/total progress across all 400 problems. A clean LeetCode-style editor for CSES.">
+  <meta name="keywords" content="CSES, CSES problem set, competitive programming, Chrome extension, code editor, LeetCode-style, CSES submit, C++ online editor, programming problems, algorithm practice">
+  <meta name="author" content="CSES LeetCode Interface">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cses-leetcode-extension.vercel.app/">
+
+  <!-- ═══ Open Graph (Facebook, LinkedIn, Discord) ═══ -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cses-leetcode-extension.vercel.app/">
+  <meta property="og:title" content="CSES LeetCode Interface — Code Directly on CSES Problem Pages">
+  <meta property="og:description" content="Submit code directly from CSES problem pages with instant results. Track your progress across all 400 problems. No file uploads, no distractions.">
+  <meta property="og:image" content="https://cses-leetcode-extension.vercel.app/assets/icon128.png">
+  <meta property="og:image:width" content="128">
+  <meta property="og:image:height" content="128">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="CSES LeetCode Interface">
+
+  <!-- ═══ Twitter Card ═══ -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://cses-leetcode-extension.vercel.app/">
+  <meta name="twitter:title" content="CSES LeetCode Interface — Code Directly on CSES Problem Pages">
+  <meta name="twitter:description" content="Write and submit code directly on CSES problem pages. Instant results, progress tracking, zero distractions.">
+  <meta name="twitter:image" content="https://cses-leetcode-extension.vercel.app/assets/icon128.png">
+
+  <!-- ═══ JSON-LD Structured Data (SoftwareApplication) ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "CSES LeetCode Interface",
+    "operatingSystem": "ChromeOS, Windows, macOS, Linux",
+    "applicationCategory": "DeveloperApplication",
+    "description": "A LeetCode-style code editor Chrome extension for CSES problem pages. Write and submit C++, Java, and Python code directly with instant test results and progress tracking.",
+    "url": "https://cses-leetcode-extension.vercel.app/",
+    "downloadUrl": "https://cses-leetcode-extension.vercel.app/cses-leetcode-extension.zip",
+    "version": "1.0.0",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "CSES LeetCode Interface"
+    },
+    "browserRequirements": "Requires Google Chrome or Chromium-based browser"
+  }
+  </script>
+
+  <!-- ═══ JSON-LD BreadcrumbList ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://cses-leetcode-extension.vercel.app/" }
+    ]
+  }
+  </script>
+
+  <!-- ═══ Favicon & Theme ═══ -->
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/icon128.png">
+  <link rel="apple-touch-icon" href="assets/icon128.png">
+  <meta name="theme-color" content="#58cc02">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <!-- ═══ Preconnect for performance ═══ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <style>
+    /* ════════════════════════════════════════════════════════════════
+       CSES LeetCode Interface — Landing Page Styles
+       ════════════════════════════════════════════════════════════════ */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--green:#58cc02;--green-dark:#46a400;--green-glow:rgba(88,204,2,0.15);--bg:#f7f7f7;--card:#fff;--text:#2b2b2b;--text-muted:#8a8a8a;--border:#e0e0e0;--radius:16px;--radius-sm:12px;--shadow:0 2px 12px rgba(0,0,0,0.04);--font-sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;--font-mono:'SF Mono','Fira Code','Cascadia Code','Consolas',monospace}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:var(--green);text-decoration:none;font-weight:600;transition:color 0.2s}
+    a:hover{color:var(--green-dark);text-decoration:underline}
+    img{max-width:100%;height:auto;display:block}
+
+    /* ─── Skip to content (a11y) ─── */
+    .skip-link{position:absolute;top:-100px;left:8px;padding:8px 16px;background:var(--green);color:#fff;border-radius:8px;z-index:1000;font-weight:700}
+    .skip-link:focus{top:8px}
+
+    /* ─── Navigation ─── */
+    nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:10px 24px;display:flex;align-items:center;justify-content:space-between}
+    nav .logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;color:var(--text)}
+    nav .logo img{width:32px;height:32px;border-radius:6px}
+    nav .nav-links{display:flex;gap:20px;align-items:center}
+    nav .nav-links a{color:var(--text-muted);font-size:14px;font-weight:600}
+    nav .nav-links a:hover{color:var(--green);text-decoration:none}
+    .nav-cta{padding:8px 20px;font-size:13px}
+
+    /* ─── Buttons ─── */
+    .btn,.btn:visited{display:inline-flex;align-items:center;gap:8px;background:var(--green);color:#fff;padding:12px 28px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;transition:background 0.15s,transform 0.1s;border:none;cursor:pointer}
+    .btn:hover{background:var(--green-dark);color:#fff;text-decoration:none;transform:translateY(-1px)}
+    .btn:active{transform:translateY(0)}
+    .btn-secondary,.btn-secondary:visited{background:transparent;color:var(--text);border:2px solid var(--border)}
+    .btn-secondary:hover{background:transparent;border-color:var(--green);color:var(--green);transform:none}
+    .btn-sm{padding:8px 18px;font-size:13px}
+
+    /* ─── Hero ─── */
+    .hero{text-align:center;padding:80px 24px 56px;max-width:720px;margin:0 auto}
+    .hero .icon-wrap{width:96px;height:96px;margin:0 auto 24px;background:#1a1a2e;border-radius:24px;display:flex;align-items:center;justify-content:center}
+    .hero h1{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-0.5px;margin-bottom:14px;line-height:1.15}
+    .hero h1 span{color:var(--green)}
+    .hero p{font-size:clamp(16px,2vw,19px);color:var(--text-muted);max-width:560px;margin:0 auto 28px;line-height:1.6}
+    .hero .btn-group{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+    /* ─── Section ─── */
+    section{max-width:1000px;margin:0 auto;padding:64px 24px}
+    section h2{font-size:clamp(22px,3vw,30px);font-weight:800;letter-spacing:-0.3px;margin-bottom:10px;text-align:center;line-height:1.2}
+    section h2 span{color:var(--green)}
+    section>.section-desc{text-align:center;color:var(--text-muted);font-size:16px;max-width:560px;margin:0 auto 40px}
+
+    /* ─── Featured in ─── */
+    .social-proof{text-align:center;padding:24px;margin-bottom:16px}
+    .social-proof p{font-size:13px;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:1px;margin-bottom:16px}
+    .social-proof .logos{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;opacity:0.5;font-size:13px;font-weight:600;color:var(--text-muted)}
+
+    /* ─── Features Grid ─── */
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+    .feature-card{background:var(--card);border-radius:var(--radius-sm);padding:28px 24px;border:1px solid #eee;transition:box-shadow 0.3s,border-color 0.3s}
+    .feature-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.06);border-color:var(--green)}
+    .feature-card .icon{font-size:30px;margin-bottom:10px;display:block}
+    .feature-card h3{font-size:17px;font-weight:700;margin-bottom:6px}
+    .feature-card p{font-size:14px;color:var(--text-muted);line-height:1.55}
+    .feature-card code{background:#f0f0f0;padding:1px 6px;border-radius:4px;font-family:var(--font-mono);font-size:12px}
+
+    /* ─── Screenshots ─── */
+    .screenshots{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:24px}
+    .screenshot-card{background:var(--card);border-radius:var(--radius-sm);overflow:hidden;border:1px solid #eee}
+    .screenshot-card .mockup{background:#1a1a2e;aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+    .screenshot-card .mockup .mockup-content{padding:24px;width:100%}
+    .screenshot-card .mockup .mockup-content .editor-header{display:flex;gap:8px;align-items:center;margin-bottom:12px}
+    .screenshot-card .mockup .mockup-content .editor-header .dot{width:10px;height:10px;border-radius:50%;background:#58cc02;flex-shrink:0}
+    .screenshot-card .mockup .mockup-content .editor-header .label{font-weight:700;font-size:14px;color:#ddd}
+    .screenshot-card .mockup .mockup-content .editor-header .lang{color:#666;font-size:12px;margin-left:auto}
+    .screenshot-card .mockup .mockup-content .code-block{background:#f0f0f0;border-radius:8px;padding:12px;color:#333;font-family:var(--font-mono);font-size:13px;line-height:1.6;text-align:left}
+    .screenshot-card .mockup .mockup-content .code-block .c{color:#888}
+    .screenshot-card .mockup .mockup-content .btn-mock{background:#58cc02;color:#fff;padding:8px 24px;border-radius:8px;font-weight:700;font-size:13px;display:inline-block;margin-top:12px}
+    .screenshot-card .caption{padding:14px 16px;font-size:14px;font-weight:600}
+    .screenshot-card .caption span{color:var(--text-muted);font-weight:400}
+
+    /* ─── Verdict Mock ─── */
+    .verdict-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+    .verdict-row .icon{font-size:18px}
+    .verdict-row .label{font-weight:700;font-size:15px}
+    .test-count{font-size:14px;color:#aaa;margin-bottom:8px}
+    .progress-bar{height:10px;background:#333;border-radius:999px;overflow:hidden;margin-bottom:4px}
+    .progress-bar .fill{height:100%;border-radius:999px}
+    .separator{height:1px;background:#333;margin:16px 0}
+
+    /* ─── Permissions ─── */
+    .permissions-box{background:var(--card);border:1px solid var(--border);border-radius:var(--radius-sm);padding:28px 32px;margin:24px auto;max-width:700px}
+    .permissions-box h3{font-size:16px;font-weight:700;margin-bottom:14px}
+    .permissions-box ul{list-style:none}
+    .permissions-box ul li{padding:5px 0;font-size:14px;color:var(--text-muted);display:flex;align-items:flex-start;gap:8px}
+    .permissions-box ul li strong{color:var(--text);font-weight:600}
+    .permissions-box ul li code{font-family:var(--font-mono);font-size:12px;background:#f0f0f0;padding:1px 5px;border-radius:3px}
+
+    /* ─── Install Steps ─── */
+    .steps{counter-reset:step;max-width:640px;margin:0 auto}
+    .step{display:flex;gap:20px;padding:18px 0;border-bottom:1px solid #eee}
+    .step:last-child{border-bottom:none}
+    .step-num{flex-shrink:0;width:38px;height:38px;background:var(--green);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px}
+    .step-body h3{font-size:16px;font-weight:700;margin-bottom:2px}
+    .step-body p{font-size:14px;color:var(--text-muted)}
+    .step-body code{background:#f0f0f0;padding:2px 8px;border-radius:4px;font-family:var(--font-mono);font-size:13px;color:var(--text);font-weight:600}
+
+    /* ─── FAQ ─── */
+    .faq-list{max-width:640px;margin:0 auto}
+    details.faq-item{border-bottom:1px solid #eee;padding:16px 0}
+    details.faq-item:first-child{padding-top:0}
+    details.faq-item summary{font-weight:700;font-size:15px;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center}
+    details.faq-item summary::-webkit-details-marker{display:none}
+    details.faq-item summary::after{content:'+';font-size:20px;color:var(--text-muted);transition:transform 0.2s}
+    details.faq-item[open] summary::after{content:'−'}
+    details.faq-item .answer{padding-top:10px;font-size:14px;color:var(--text-muted);line-height:1.6}
+    details.faq-item .answer a{font-weight:600}
+
+    /* ─── Footer ─── */
+    footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);color:var(--text-muted);font-size:14px}
+    footer .footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+    footer .footer-links a{color:var(--text-muted);font-weight:500;font-size:13px}
+    footer .footer-links a:hover{color:var(--green)}
+    footer .copyright{font-size:12px;opacity:0.6}
+
+    /* ─── Responsive ─── */
+    @media(max-width:640px){
+      nav .nav-links a:not(.nav-cta){display:none}
+      .hero{padding:48px 16px 40px}
+      section{padding:40px 16px}
+      .screenshots{grid-template-columns:1fr}
+      .features-grid{grid-template-columns:1fr}
+      .permissions-box{padding:20px}
+    }
+    @media(min-width:641px){
+      .mobile-only{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ Skip link (a11y) ═══ -->
+<a href="#features" class="skip-link">Skip to content</a>
+
+<!-- ═══ Navigation ═══ -->
+<nav aria-label="Main navigation">
+  <a class="logo" href="/" aria-label="CSES LeetCode Interface home">
+    <img src="assets/icon48.png" alt="" width="32" height="32">
+    CSES LeetCode
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#install">Install</a>
+    <a href="#faq">FAQ</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="cses-leetcode-extension.zip" class="btn btn-sm nav-cta" download>Download .zip</a>
+  </div>
+</nav>
+
+<!-- ═══ Hero ═══ -->
+<header class="hero">
+  <div class="icon-wrap">
+    <img src="assets/icon128.png" alt="CSES LeetCode Interface extension icon: dark square with green circle containing a white C" width="64" height="64">
+  </div>
+  <h1>CSES, meet <span>LeetCode</span></h1>
+  <p>Write and submit code directly on CSES problem pages. Get instant test results with clean progress tracking — no more file uploads or tab switching.</p>
+  <div class="btn-group">
+    <a href="cses-leetcode-extension.zip" class="btn" download aria-label="Download CSES LeetCode Interface extension ZIP">
+      ⬇ Download Extension
+    </a>
+    <a href="#install" class="btn btn-secondary">How to Install</a>
+  </div>
+</header>
+
+<!-- ═══ Social Proof ═══ -->
+<div class="social-proof" aria-label="Compatible platforms">
+  <p>Compatible with</p>
+  <div class="logos">
+    <span>Google Chrome</span>
+    <span>Microsoft Edge</span>
+    <span>Brave</span>
+    <span>Opera</span>
+    <span>Chromium</span>
+  </div>
+</div>
+
+<!-- ═══ Features ═══ -->
+<section id="features" aria-label="Extension features">
+  <h2>Everything you <span>need</span></h2>
+  <p class="section-desc">Built for competitive programmers who want a clean, distraction-free submission experience.</p>
+  <div class="features-grid">
+
+    <article class="feature-card">
+      <span class="icon" aria-hidden="true">📝</span>
+      <h3>Plain Text Editor</h3>
+      <p>No syntax highlighting, no distractions. Just a clean <code>&lt;textarea&gt;</code> with monospace font — like a real contest environment.</p>
+    </article>
+
+    <article class="feature-card">
+      <span class="icon" aria-hidden="true">🚀</span>
+      <h3>One-Click Submit</h3>
+      <p>Write code and click Submit — or hit <code>Ctrl+Enter</code> / <code>Cmd+Enter</code>. Your solution is sent directly to CSES using your existing session — no file uploads or extra steps.</p>
+    </article>
+
+    <article class="feature-card">
+      <span class="icon" aria-hidden="true">📊</span>
+      <h3>Instant Results</h3>
+      <p>See your verdict immediately: <strong>ACCEPTED</strong>, <strong>WRONG ANSWER</strong>, <strong>COMPILE ERROR</strong>, and more. Shows only the <strong>test count</strong> — no specific case names.</p>
+    </article>
+
+    <article class="feature-card">
+      <span class="icon" aria-hidden="true">📈</span>
+      <h3>Progress Tracker</h3>
+      <p>The problem set page shows a clean progress bar with your solved/total count. Track how far you've come across all <strong>400 problems</strong>.</p>
+    </article>
+
+    <article class="feature-card">
+      <span class="icon" aria-hidden="true">💾</span>
+      <h3>Draft Autosave</h3>
+      <p>Your code is saved locally as you type, per problem. Refresh or navigate away and it's still there. Drafts clear automatically when your solution is <strong>ACCEPTED</strong>.</p>
+    </article>
+
+    <article class="feature-card">
+      <span class="icon" aria-hidden="true">🧭</span>
+      <h3>Keyboard Shortcuts</h3>
+      <p><code>Tab</code> inserts 4 spaces for indentation, and <code>Ctrl+Enter</code> submits. Your <strong>language choice is remembered</strong> between sessions.</p>
+    </article>
+
+    <article class="feature-card">
+      <span class="icon" aria-hidden="true">🔒</span>
+      <h3>Zero Data Collection</h3>
+      <p>No analytics, no tracking, no external servers. Your code goes straight to CSES and nowhere else. <strong>No special permissions required.</strong></p>
+    </article>
+
+    <article class="feature-card">
+      <span class="icon" aria-hidden="true">🌿</span>
+      <h3>Clean, Minimal Design</h3>
+      <p>Duolingo-inspired interface with green accents, rounded cards, and a focus on what matters: writing and submitting code.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══ Screenshots ═══ -->
+<section id="screenshots" aria-label="Screenshots">
+  <h2>See it in <span>action</span></h2>
+  <p class="section-desc">Clean interface, instant feedback, zero clutter.</p>
+  <div class="screenshots">
+
+    <figure class="screenshot-card">
+      <a href="screenshots/shot1_editor.png" target="_blank" rel="noopener" aria-label="Open full-size editor screenshot">
+        <img src="screenshots/shot1_editor.png" alt="Code editor in the right sidebar of a CSES task page, with language selector, C++ code in a plain textarea, and a green Submit button" loading="lazy">
+      </a>
+      <figcaption class="caption">Code Editor <span>— Write and submit code from the sidebar on any CSES problem page</span></figcaption>
+    </figure>
+
+    <figure class="screenshot-card">
+      <a href="screenshots/shot2_result.png" target="_blank" rel="noopener" aria-label="Open full result screenshot">
+        <img src="screenshots/shot2_result.png" alt="ACCEPTED verdict with 14/14 tests passed and a full green progress bar" loading="lazy">
+      </a>
+      <figcaption class="caption">Result Display <span>— Clean verdict with test count and progress bar</span></figcaption>
+    </figure>
+
+    <figure class="screenshot-card">
+      <a href="screenshots/shot3_progress.png" target="_blank" rel="noopener" aria-label="Open full progress tracker screenshot">
+        <img src="screenshots/shot3_progress.png" alt="Progress tracker on the CSES problem set page showing 2/400 solved with a progress bar and category list" loading="lazy">
+      </a>
+      <figcaption class="caption">Progress Tracker <span>— See your solved/total count on the problem set page</span></figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ═══ Permissions ═══ -->
+<section id="privacy" aria-label="Privacy and permissions">
+  <h2>🔒 <span>Privacy first</span></h2>
+  <p class="section-desc">Your code never leaves your browser except to CSES — where it already goes when you submit normally.</p>
+  <div class="permissions-box">
+    <h3>What the extension accesses</h3>
+    <ul>
+      <li>✅ <strong><code>host_permissions: https://cses.fi/*</code></strong> — Required to run the editor on CSES pages. No other sites are ever accessed.</li>
+      <li>✅ <strong>No <code>cookies</code> permission</strong> — Your session cookie is sent automatically by the browser. The extension never reads it.</li>
+      <li>✅ <strong>No <code>storage</code> permission</strong> — Drafts and language preference are saved with <code>localStorage</code> (in your browser, on your device). They never leave your machine.</li>
+      <li>✅ <strong>No third-party servers</strong> — All code is sent directly to <code>cses.fi</code>, same as a normal form submission.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══ Install ═══ -->
+<section id="install" aria-label="Installation instructions">
+  <h2>Get started in <span>2 minutes</span></h2>
+  <p class="section-desc">No account, no signup. Just download and load into Chrome.</p>
+  <div class="steps">
+    <div class="step"><div class="step-num">1</div><div class="step-body"><h3>Download the extension</h3><p>Click the Download button above to get <code>cses-leetcode-extension.zip</code>.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-body"><h3>Unzip the file</h3><p>Extract the contents to a folder on your computer (e.g., <code>~/cses-leetcode-extension/</code>).</p></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-body"><h3>Open Chrome Extensions</h3><p>Navigate to <code>chrome://extensions</code> in your browser.</p></div></div>
+    <div class="step"><div class="step-num">4</div><div class="step-body"><h3>Enable Developer mode</h3><p>Toggle <strong>Developer mode</strong> in the top-right corner of the Extensions page.</p></div></div>
+    <div class="step"><div class="step-num">5</div><div class="step-body"><h3>Load the extension</h3><p>Click <strong>Load unpacked</strong> and select the folder where you extracted the files.</p></div></div>
+    <div class="step"><div class="step-num">6</div><div class="step-body"><h3>Start coding!</h3><p>Go to <a href="https://cses.fi/problemset/" target="_blank" rel="noopener">cses.fi/problemset/</a> — you'll see the progress tracker on the main page and the code editor on every task page.</p></div></div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq" aria-label="Frequently asked questions">
+  <h2>Frequently asked <span>questions</span></h2>
+  <p class="section-desc">Quick answers to common questions about the extension.</p>
+  <div class="faq-list">
+    <details class="faq-item">
+      <summary>Does this extension collect my data?</summary>
+      <div class="answer">No. The extension has zero analytics, zero tracking, and zero external connections. Your code is sent directly to <a href="https://cses.fi" target="_blank" rel="noopener">cses.fi</a> — the same server you already use. No data is stored or transmitted anywhere else. See the <a href="privacy.html">privacy policy</a> for full details.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Do I need a CSES account?</summary>
+      <div class="answer">Yes. You need a free CSES account to submit solutions. The extension uses your existing browser session — just <a href="https://cses.fi/login" target="_blank" rel="noopener">log into CSES</a> normally and the extension works automatically.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What keyboard shortcuts are supported?</summary>
+      <div class="answer"><code>Ctrl+Enter</code> (or <code>Cmd+Enter</code> on Mac) submits your solution. <code>Tab</code> inserts 4 spaces so you can indent without the cursor jumping out of the editor.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Is my code saved if I refresh the page?</summary>
+      <div class="answer">Yes. Your draft is saved locally (per problem) as you type. If you refresh or navigate away, it's restored when you return. The draft is automatically removed once your solution is accepted.</div>
+    </details>
+    <details class="faq-item">
+      <summary>What languages are supported?</summary>
+      <div class="answer">C++, C, Java, Python 3, and JavaScript (Node.js). The language selector appears above the code editor on every problem page, and your last choice is remembered.</div>
+    </details>
+    <details class="faq-item">
+      <summary>Will this extension slow down CSES pages?</summary>
+      <div class="answer">No. The extension is lightweight (~8 KB of JavaScript) and only activates on CSES problem set and task pages. It has no impact on other websites.</div>
+    </details>
+    <details class="faq-item">
+      <summary>How do I update the extension?</summary>
+      <div class="answer">Since this is loaded as an unpacked extension, you'll need to download the latest ZIP, extract it over your existing folder, and reload the extension at <code>chrome://extensions</code> (click the refresh icon on the extension card).</div>
+    </details>
+    <details class="faq-item">
+      <summary>Is this affiliated with CSES or Chrome?</summary>
+      <div class="answer">No. This is an independent, free project built by a student for personal learning and education. It is not affiliated with, or endorsed by, CSES, the University of Helsinki, LeetCode, or Google.</div>
+    </details>
+  </div>
+</section>
+
+<!-- ═══ Footer ═══ -->
+<footer>
+  <div class="footer-links">
+    <a href="#features">Features</a>
+    <a href="#screenshots">Screenshots</a>
+    <a href="#install">Install</a>
+    <a href="#faq">FAQ</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="llms.txt">LLMs.txt</a>
+    <a href="sitemap.xml">Sitemap</a>
+  </div>
+  <div class="footer-links">
+    <a href="https://github.com/kaush/cses-leetcode-extension" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://chrome.google.com/webstore/devconsole" target="_blank" rel="noopener">Chrome Web Store</a>
+  </div>
+  <p class="copyright">&copy; 2026 CSES LeetCode Interface. Built for personal learning and education — an independent student project, not affiliated with, or endorsed by, CSES, the University of Helsinki, LeetCode, or Google.</p>
+</footer>
+
+</body>
+</html>

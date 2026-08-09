@@ -1,0 +1,20 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/download",
+      "destination": "/cses-leetcode-extension.zip",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/cses-leetcode-extension.zip",
+      "headers": [
+        { "key": "Content-Type", "value": "application/zip" }
+      ]
+    }
+  ]
+}

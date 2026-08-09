@@ -1,0 +1,13 @@
+# CSES LeetCode Interface — Crawler Instructions
+# https://cses-leetcode-extension.vercel.app/
+
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /sitemap.xml
+
+# No private or system files
+Disallow: /.git/
+Disallow: /assets/
+
+Sitemap: https://cses-leetcode-extension.vercel.app/sitemap.xml

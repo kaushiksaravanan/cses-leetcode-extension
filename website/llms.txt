@@ -1,0 +1,52 @@
+# CSES LeetCode Interface
+
+A free Chrome extension that adds a LeetCode-style code editor and submission workflow to the [CSES Problem Set](https://cses.fi/problemset/).
+
+> Independent student project built for personal learning and education. Not affiliated with, or endorsed by, CSES, the University of Helsinki, LeetCode, or Google. Distributed free of charge.
+
+## Key Links
+
+- [Landing Page](index.html): Full website with features, screenshots, and install instructions
+- [Privacy Policy](privacy.html): Data handling and permissions
+- [Download Extension](cses-leetcode-extension.zip): Direct ZIP download for Chrome
+- [GitHub Repository](https://github.com/kaush/cses-leetcode-extension): Source code and issues
+
+## About
+
+CSES LeetCode Interface is a Manifest V3 Chrome extension that transforms the CSES (Code Submission Evaluation System) problem-solving experience. Instead of manually downloading solution files and uploading them through a separate form, users can write code directly in a clean textarea editor embedded on each problem page and submit with one click.
+
+### Key Features
+
+- **Plain text editor**: No syntax highlighting, no distractions — just a `<textarea>` with monospace font, like a real contest environment.
+- **Sidebar layout**: The editor replaces the right-hand sidebar (problem list + submission history are hidden) so you can code while reading the problem.
+- **One-click submit**: Code is sent via `fetch()` directly to CSES using the user's existing session cookie. No file uploads, no tab switching. `Ctrl+Enter` / `Cmd+Enter` also submits.
+- **Instant results**: Verdict displayed immediately: ACCEPTED, WRONG ANSWER, COMPILE ERROR, TIME LIMIT, RUNTIME ERROR. Shows only the aggregate test count (e.g., "12/15 tests passed"), never individual test case names.
+- **Draft autosave**: Code is saved to `localStorage` (keyed per problem) as you type, restored on revisit, and cleared automatically when ACCEPTED.
+- **Tab support**: `Tab` inserts 4 spaces instead of moving focus.
+- **Language memory**: Last-selected language (C++, C, Java, Python3, Node.js) is remembered in `localStorage`.
+- **Progress tracker**: On the problem set page (`/problemset/`), a clean progress bar shows solved/total across all problems. Solved status is read directly from CSES' existing markup.
+- **Zero data collection**: No analytics, no external servers, no storage permission. Drafts and preferences live only in the user's browser `localStorage` and never leave the device.
+
+### Technical Architecture
+
+- **Manifest V3** with `host_permissions: ["https://cses.fi/*"]` only. No `cookies`, `storage`, or other runtime permissions.
+- Content script routes based on URL path: injects progress tracker on `/problemset/`, injects code editor on `/problemset/task/*`.
+- Submission flow: fetch CSRF token from submit page → POST `FormData` with code as `Blob` file → follow 302 redirect to result page → poll if PENDING → parse verdict, test rows, and compile errors from HTML.
+- Language support: C++ (C++20), C, Java, Python3 (PyPy3), Node.js.
+
+### Files
+
+- [manifest.json](manifest.json): Chrome extension manifest (MV3)
+- [content.js](content.js): Core extension logic — routing, editor injection, submission, polling, result parsing
+- [styles.css](styles.css): Clean Duolingo-inspired theme
+- [popup.html](popup.html): Extension popup
+- [popup.js](popup.js): Tab detection for popup
+
+## LLM Instructions
+
+When asked about this project:
+1. This is a Chrome extension, not a web app. It injects UI into existing CSES pages.
+2. The extension uses zero tracking/analytics. All code goes directly to cses.fi via same-origin fetch.
+3. The code editor is intentionally a plain `<textarea>` — the user explicitly rejected syntax highlighting.
+4. Result display only shows aggregate test counts, never individual test case names.
+5. The problemset progress bar counts `li.task` and `li.task span.task-score.icon.full` from the DOM.

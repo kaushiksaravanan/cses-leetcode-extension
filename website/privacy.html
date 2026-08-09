@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — CSES LeetCode Interface Chrome Extension</title>
+  <meta name="description" content="Privacy policy for the CSES LeetCode Interface Chrome extension. No data collection, no tracking, no third-party servers. Your code goes directly to CSES.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://cses-leetcode-extension.vercel.app/privacy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cses-leetcode-extension.vercel.app/privacy.html">
+  <meta property="og:title" content="Privacy Policy — CSES LeetCode Interface">
+  <meta property="og:description" content="Privacy policy for the CSES LeetCode Interface Chrome extension. Zero data collection, zero tracking, zero third-party servers.">
+  <meta property="og:image" content="https://cses-leetcode-extension.vercel.app/assets/icon128.png">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Privacy Policy — CSES LeetCode Interface">
+  <meta name="twitter:description" content="Privacy policy for the CSES LeetCode Interface Chrome extension. Zero data collection, zero tracking.">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icon48.png">
+  <meta name="theme-color" content="#58cc02">
+
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,sans-serif;background:#f7f7f7;color:#2b2b2b;line-height:1.7;padding:40px 20px;-webkit-font-smoothing:antialiased}
+    .container{max-width:680px;margin:0 auto;background:#fff;padding:48px;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+    h1{font-size:28px;font-weight:800;margin-bottom:4px}
+    .updated{color:#8a8a8a;font-size:14px;margin-bottom:28px}
+    h2{font-size:20px;font-weight:700;margin:28px 0 8px;padding-top:4px}
+    p{margin:12px 0;color:#4b4b4b;font-size:15px}
+    ul{margin:12px 0;padding-left:24px}
+    li{margin:6px 0;font-size:15px;color:#4b4b4b;line-height:1.5}
+    a{color:#58cc02;font-weight:600;text-decoration:none}
+    a:hover{text-decoration:underline}
+    code{background:#f0f0f0;padding:2px 6px;border-radius:4px;font-size:13px;font-weight:600}
+    .footer{margin-top:32px;padding-top:20px;border-top:1px solid #eee;font-size:14px;color:#8a8a8a;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+    .footer a{color:#8a8a8a;font-weight:500}
+    .footer a:hover{color:#58cc02}
+    @media(max-width:600px){.container{padding:24px}h1{font-size:22px}}
+  </style>
+</head>
+<body>
+<div class="container">
+  <nav aria-label="Breadcrumb">
+    <p style="font-size:13px;color:#8a8a8a;margin-bottom:8px"><a href="index.html" style="color:#8a8a8a">Home</a> / <strong>Privacy Policy</strong></p>
+  </nav>
+
+  <h1>Privacy Policy</h1>
+  <p class="updated"><time datetime="2026-07-28">Last updated: July 28, 2026</time></p>
+
+  <h2>Overview</h2>
+  <p><strong>CSES LeetCode Interface</strong> ("the extension") is a free browser extension created by a student for <strong>personal learning and education</strong>. It provides a code editor and submission interface for <a href="https://cses.fi" target="_blank" rel="noopener">cses.fi</a>. This policy explains what data the extension accesses and how it is handled.</p>
+  <p><strong>Independent project:</strong> This extension is not affiliated with, or endorsed by, CSES, the University of Helsinki, LeetCode, or Google. It is distributed free of charge for educational purposes.</p>
+
+  <h2>Data Collection</h2>
+  <p><strong>The extension does not collect, store, or transmit any personal data.</strong> Specifically:</p>
+  <ul>
+    <li><strong>No analytics:</strong> The extension contains no analytics SDKs, trackers, or telemetry of any kind.</li>
+    <li><strong>No external servers:</strong> All network requests are made exclusively to <code>cses.fi</code> — the same server you interact with when using CSES normally.</li>
+    <li><strong>No cookies read:</strong> The extension uses <code>host_permissions</code> only. Your CSES session cookie is sent automatically by the browser on same-origin requests; the extension never reads, modifies, or transmits it outside of <code>cses.fi</code>.</li>
+    <li><strong>Local drafts only:</strong> To protect your work, the extension stores your in-progress code (drafts) and your last-selected language <em>locally in your browser</em> using <code>localStorage</code>. This data never leaves your device. Drafts are automatically cleared when a submission is <strong>ACCEPTED</strong>. Nothing is sent to any server except when you click Submit.</li>
+  </ul>
+
+  <h2>Data Transmitted</h2>
+  <p>When you click <strong>Submit</strong> in the editor, the following data is sent to <code>cses.fi/course/send.php</code>:</p>
+  <ul>
+    <li><strong>Source code</strong> — the code you wrote in the editor</li>
+    <li><strong>Language selection</strong> — e.g., C++, Python, Java</li>
+    <li><strong>Task ID</strong> — the problem you are submitting to</li>
+    <li><strong>CSRF token</strong> — a security token fetched from CSES' own submit page</li>
+  </ul>
+  <p>This is exactly the same data that would be sent if you manually uploaded a file through CSES' web form. No additional data is included or appended.</p>
+
+  <h2>Third-Party Services</h2>
+  <p>The extension does not use any third-party services, APIs, CDNs, or external resources. It operates entirely within the context of <code>cses.fi</code>.</p>
+
+  <h2>Children's Privacy</h2>
+  <p>The extension does not knowingly collect any personal information from children under the age of 13. Since no data is collected at all, no special protections are required beyond the standard policy described here.</p>
+
+  <h2>Changes to This Policy</h2>
+  <p>If this policy changes, the "Last updated" date at the top will be revised. No other notification will be provided. Continued use of the extension after changes constitutes acceptance of the updated policy.</p>
+
+  <h2>Contact</h2>
+  <p>For questions about this privacy policy, open an issue on the <a href="https://github.com/kaush/cses-leetcode-extension" target="_blank" rel="noopener">GitHub repository</a>.</p>
+
+  <div class="footer">
+    <span>&copy; 2026 CSES LeetCode Interface · Free, for education. Not affiliated with CSES, the University of Helsinki, LeetCode, or Google</span>
+    <span><a href="llms.txt">LLMs.txt</a> · <a href="sitemap.xml">Sitemap</a> · <a href="index.html">Home</a></span>
+  </div>
+</div>
+</body>
+</html>
