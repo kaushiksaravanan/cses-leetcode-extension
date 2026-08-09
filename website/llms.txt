@@ -9,7 +9,7 @@ A free Chrome extension that adds a LeetCode-style code editor and submission wo
 - [Landing Page](index.html): Full website with features, screenshots, and install instructions
 - [Privacy Policy](privacy.html): Data handling and permissions
 - [Download Extension](cses-leetcode-extension.zip): Direct ZIP download for Chrome
-- [GitHub Repository](https://github.com/kaush/cses-leetcode-extension): Source code and issues
+- [GitHub Repository](https://github.com/kaushiksaravanan/cses-leetcode-extension): Source code and issues
 
 ## About
 
